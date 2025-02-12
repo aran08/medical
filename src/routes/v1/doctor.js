@@ -4,7 +4,9 @@ const authorize = require("../../middleware/Authorization");
 
 const DoctorController = require("../../controller/doctor-controller");
 
-router.post("/doctor/create", authorize(["doctor"]), DoctorController.create);
+router.post("/doctor/create", 
+  // authorize(["doctor"]), 
+  DoctorController.create);
 router.get(
   "/doctor/hospital/:id",
   authorize(["doctor"]),
@@ -12,7 +14,7 @@ router.get(
 );
 router.get(
   "/doctor/list",
-  authorize(["patient", "admin"]),
+  // authorize(["patient", "admin"]),
   DoctorController.getAll
 );
 router.get(

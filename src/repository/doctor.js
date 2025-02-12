@@ -1,5 +1,4 @@
 const { Doctor } = require("../models/index");
-const { Op, where } = require("sequelize");
 const { User } = require("../models/index");
 
 class DoctorRepository {
@@ -119,6 +118,7 @@ class DoctorRepository {
       throw error;
     }
   }
+  
 }
 
 module.exports = DoctorRepository;

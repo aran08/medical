@@ -41,6 +41,16 @@ class UserRepository {
     }
   }
 
+  async getAll() {
+    try {
+      const user = await User.findAll();
+      return user;
+    } catch (error) {
+      console.log("Something went wrong in the repository layer");
+      throw { error };
+    }
+  }
+
   async me(token) {
     try {
       const response = jwt.verify(token, JWT_KEY);
@@ -54,10 +64,10 @@ class UserRepository {
   async update(data, id) {
     try {
       const response = await User.update(data, {
-        where : {
-          id:id
-        }
-      })
+        where: {
+          id: id,
+        },
+      });
       return response;
     } catch (error) {
       console.log("Something went wrong while updating user information");
@@ -69,10 +79,10 @@ class UserRepository {
     try {
       const response = await User.destroy({
         where: {
-          id:userid
-        }
-      })
-      return response
+          id: userid,
+        },
+      });
+      return response;
     } catch (error) {
       console.log("Something went wrong while deleting user information");
       throw error;
@@ -91,10 +101,9 @@ class UserRepository {
 
   verifyToken(token) {
     try {
-
-      console.log("token inrepo",token)
+      console.log("token inrepo", token);
       const response = jwt.verify(token, JWT_KEY);
-      console.log("response for role verification", response)
+      console.log("response for role verification", response);
       return response;
     } catch (error) {
       console.log("Something went wrong in token validation", error);

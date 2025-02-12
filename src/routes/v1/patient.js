@@ -6,7 +6,7 @@ const PatientController = require("../../controller/patient-controller");
 
 router.post(
   "/patient/profile",
-  authorize(["patient"]),
+  // authorize(["patient"]),
   PatientController.create
 );
 router.get(

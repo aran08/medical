@@ -26,6 +26,16 @@ class UserService {
     }
   }
 
+  async getAll() {
+    try {
+      const user = await this.userRepository.getAll();
+      return user;
+    } catch (error) {
+      console.log("Something went wrong at the service layer");
+      throw error;
+    }
+  }
+
   async me(token) {
     try {
       const user = await this.userRepository.me(token);

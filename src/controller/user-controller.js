@@ -9,9 +9,9 @@ const create = async (req, res) => {
       success: true,
       message: "Successfully created a user",
       data: {
-        id:user.id,
-        role:user.role,
-        is_profile_complete:user.is_profile_complete
+        id: user.id,
+        role: user.role,
+        is_profile_complete: user.is_profile_complete,
       },
       err: {},
     });
@@ -46,7 +46,27 @@ const login = async (req, res) => {
   }
 };
 
-const upadte = async(req, res) => {
+const getAll = async (req, res) => {
+  try {
+    const user = await userService.getAll();
+    return res.status(200).json({
+      success: true,
+      message: "Successfully Fetched all User",
+      token: user,
+      err: {},
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      data: {},
+      success: false,
+      message: "Not able to update a user profile status",
+      err: error,
+    });
+  }
+};
+
+const upadte = async (req, res) => {
   try {
     const user = await userService.update(req.body, req.params.id);
     return res.status(200).json({
@@ -64,7 +84,7 @@ const upadte = async(req, res) => {
       err: error,
     });
   }
-}
+};
 
 const me = async (req, res) => {
   try {
@@ -94,7 +114,7 @@ const me = async (req, res) => {
   }
 };
 
-const deleteUser = async (req,res)=> {
+const deleteUser = async (req, res) => {
   try {
     const user = await userService.deleteuser(req.params.id);
     return res.status(201).json({
@@ -112,12 +132,13 @@ const deleteUser = async (req,res)=> {
       err: error,
     });
   }
-}
+};
 
 module.exports = {
   create,
   login,
   upadte,
+  getAll,
   deleteUser,
   me,
 };
