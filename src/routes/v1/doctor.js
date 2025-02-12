@@ -9,7 +9,7 @@ router.post("/doctor/create",
   DoctorController.create);
 router.get(
   "/doctor/hospital/:id",
-  authorize(["doctor"]),
+  // authorize(["doctor"]),
   DoctorController.getbyHospitalId
 );
 router.get(
@@ -19,17 +19,17 @@ router.get(
 );
 router.get(
   "/doctor/:id",
-  authorize(["patient", "admin", "doctor"]),
+  // authorize(["patient", "admin", "doctor"]),
   DoctorController.getbyid
 );
 router.put(
   "/doctor/update/:id",
-  authorize(["doctor"]),
+  // authorize(["doctor"]),
   DoctorController.update
 );
 router.delete(
   "/doctor/delete/:id",
-  authorize(["doctor", "admin"]),
+  // authorize(["doctor", "admin"]),
   DoctorController.deletedoctor
 );
 

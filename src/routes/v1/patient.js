@@ -11,17 +11,17 @@ router.post(
 );
 router.get(
   "/patient/get/:id",
-  authorize(["doctor", "patient"]),
+  // authorize(["doctor", "patient"]),
   PatientController.getbyId
 );
 router.put(
   "/patient/:id",
-  authorize(["admin", "patient"]),
+  // authorize(["admin", "patient"]),
   PatientController.upadte
 );
 router.delete(
   "/patient/delete/:id",
-  authorize(["doctor", "patient"]),
+  // authorize(["doctor", "patient"]),
   PatientController.deletePatient
 );
 

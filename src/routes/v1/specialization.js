@@ -7,23 +7,23 @@ const SpecializationController = require("../../controller/specialization-contro
 // Rotes for managing Specialization
 router.post(
   "/specialization/bulkadd",
-  authorize(["admin"]),
+  // authorize(["admin"]),
   SpecializationController.createSpecialization
 );
 router.post(
   "/specialization/add",
-  authorize(["doctor"]),
+  // authorize(["doctor"]),
   SpecializationController.addMoreSpecialization
 );
 router.put(
   "/specialization/:id",
-  authorize(["admin"]),
+  // authorize(["admin"]),
   SpecializationController.updateSpecialization
 );
 router.get("/specialization", SpecializationController.getAllSpecialization);
 router.delete(
   "/specialization/:id",
-  authorize(["admin"]),
+  // authorize(["admin"]),
   SpecializationController.deleteSpecialization
 );
 

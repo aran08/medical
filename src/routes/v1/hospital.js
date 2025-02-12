@@ -7,47 +7,47 @@ const HospitalController = require("../../controller/hospital-controller");
 // Routes for Hospital Management
 router.post(
   "/hospital",
-  authorize(["hospital"]),
+  // authorize(["hospital"]),
   HospitalController.createHospital
 );
 router.post(
   "/hospital/bulk",
-  authorize(["admin"]),
+  // authorize(["admin"]),
   HospitalController.createBulkHospital
 );
 router.put(
   "/hospital/:id",
-  authorize(["hospital", "admin"]),
+  // authorize(["hospital", "admin"]),
   HospitalController.updateHospital
 );
 router.get(
   "/hospital",
-  authorize(["patient"]),
+  // authorize(["patient"]),
   HospitalController.getAllHospital
 );
 router.get(
   "/hospital/verified",
-  authorize(["patient"]),
+  // authorize(["patient"]),
   HospitalController.Verified
 );
 router.get(
   "/hospital/:id",
-  authorize(["patient", "doctor", "hospital"]),
+  // authorize(["patient", "doctor", "hospital"]),
   HospitalController.getById
 );
 router.post(
   "/hospital/city",
-  authorize(["doctor", "patient", "admin"]),
+  // authorize(["doctor", "patient", "admin"]),
   HospitalController.getBycity
 );
 router.post(
   "/hospital/state",
-  authorize(["doctor", "patient", "admin"]),
+  // authorize(["doctor", "patient", "admin"]),
   HospitalController.getByState
 );
 router.delete(
   "/hospital/:id",
-  authorize(["hospital", "admin"]),
+  // authorize(["hospital", "admin"]),
   HospitalController.deleteHospital
 );
 
